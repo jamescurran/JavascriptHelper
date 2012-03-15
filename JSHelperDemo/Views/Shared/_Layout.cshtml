@@ -1,0 +1,26 @@
+﻿@using NovelTheory.Component
+@{
+	var Script = JavascriptHelper.Create(this);
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+	<link  rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Site.css")"/>
+
+	@Script.InsertCss()
+
+</head>
+<body>
+    <div class="page">
+        <section id="main">
+            @RenderBody()
+        </section>
+        <footer>
+        </footer>
+    </div>
+@Script.InsertScripts()
+@Script.InsertOnReady()
+</body>
+</html>

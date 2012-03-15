@@ -1,0 +1,16 @@
+﻿@using JSHelperDemo.Components
+
+<h2>With Helper</h2>
+
+@Html.MessageBox("msg1", "Button 1 clicked")
+@Html.MessageBox("msg2","Button 2 clicked", "Warning", "alert")
+
+
+<button onclick="OpenDiag('msg1')">Button 1</button>
+<button onclick="OpenDiag('msg2')">Button 2 </button>
+
+@*  
+@Html.Partial("MyTabs") 
+
+@* *@
+

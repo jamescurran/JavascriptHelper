@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FC767DE7-AC97-4560-8172-6C2C3DADC213}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JSHelperDemo</RootNamespace>
+    <AssemblyName>JSHelperDemo</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.DirectoryServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\JavascriptHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Components\MyHelpers.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\ui\images\222222_11x11_icon_arrows_leftright.gif" />
+    <Content Include="Content\ui\images\222222_11x11_icon_arrows_updown.gif" />
+    <Content Include="Content\ui\images\222222_11x11_icon_close.gif" />
+    <Content Include="Content\ui\images\222222_11x11_icon_doc.gif" />
+    <Content Include="Content\ui\images\222222_11x11_icon_folder_closed.gif" />
+    <Content Include="Content\ui\images\222222_11x11_icon_folder_open.gif" />
+    <Content Include="Content\ui\images\222222_11x11_icon_minus.gif" />
+    <Content Include="Content\ui\images\222222_11x11_icon_plus.gif" />
+    <Content Include="Content\ui\images\222222_11x11_icon_resize_se.gif" />
+    <Content Include="Content\ui\images\222222_256x240_icons_icons.png" />
+    <Content Include="Content\ui\images\222222_7x7_arrow_down.gif" />
+    <Content Include="Content\ui\images\222222_7x7_arrow_left.gif" />
+    <Content Include="Content\ui\images\222222_7x7_arrow_right.gif" />
+    <Content Include="Content\ui\images\222222_7x7_arrow_up.gif" />
+    <Content Include="Content\ui\images\2e83ff_256x240_icons_icons.png" />
+    <Content Include="Content\ui\images\454545_11x11_icon_arrows_leftright.gif" />
+    <Content Include="Content\ui\images\454545_11x11_icon_arrows_updown.gif" />
+    <Content Include="Content\ui\images\454545_11x11_icon_close.gif" />
+    <Content Include="Content\ui\images\454545_11x11_icon_doc.gif" />
+    <Content Include="Content\ui\images\454545_11x11_icon_folder_closed.gif" />
+    <Content Include="Content\ui\images\454545_11x11_icon_folder_open.gif" />
+    <Content Include="Content\ui\images\454545_11x11_icon_minus.gif" />
+    <Content Include="Content\ui\images\454545_11x11_icon_plus.gif" />
+    <Content Include="Content\ui\images\454545_256x240_icons_icons.png" />
+    <Content Include="Content\ui\images\454545_7x7_arrow_down.gif" />
+    <Content Include="Content\ui\images\454545_7x7_arrow_left.gif" />
+    <Content Include="Content\ui\images\454545_7x7_arrow_right.gif" />
+    <Content Include="Content\ui\images\454545_7x7_arrow_up.gif" />
+    <Content Include="Content\ui\images\888888_11x11_icon_arrows_leftright.gif" />
+    <Content Include="Content\ui\images\888888_11x11_icon_arrows_updown.gif" />
+    <Content Include="Content\ui\images\888888_11x11_icon_close.gif" />
+    <Content Include="Content\ui\images\888888_11x11_icon_doc.gif" />
+    <Content Include="Content\ui\images\888888_11x11_icon_folder_closed.gif" />
+    <Content Include="Content\ui\images\888888_11x11_icon_folder_open.gif" />
+    <Content Include="Content\ui\images\888888_11x11_icon_minus.gif" />
+    <Content Include="Content\ui\images\888888_11x11_icon_plus.gif" />
+    <Content Include="Content\ui\images\888888_256x240_icons_icons.png" />
+    <Content Include="Content\ui\images\888888_7x7_arrow_down.gif" />
+    <Content Include="Content\ui\images\888888_7x7_arrow_left.gif" />
+    <Content Include="Content\ui\images\888888_7x7_arrow_right.gif" />
+    <Content Include="Content\ui\images\888888_7x7_arrow_up.gif" />
+    <Content Include="Content\ui\images\bg.gif" />
+    <Content Include="Content\ui\images\cccccc_40x100_textures_03_highlight_soft_75.png" />
+    <Content Include="Content\ui\images\cd0a0a_256x240_icons_icons.png" />
+    <Content Include="Content\ui\images\colorpicker_background.png" />
+    <Content Include="Content\ui\images\colorpicker_hex.png" />
+    <Content Include="Content\ui\images\colorpicker_hsb_b.png" />
+    <Content Include="Content\ui\images\colorpicker_hsb_h.png" />
+    <Content Include="Content\ui\images\colorpicker_hsb_s.png" />
+    <Content Include="Content\ui\images\colorpicker_indic.gif" />
+    <Content Include="Content\ui\images\colorpicker_overlay.png" />
+    <Content Include="Content\ui\images\colorpicker_rgb_b.png" />
+    <Content Include="Content\ui\images\colorpicker_rgb_g.png" />
+    <Content Include="Content\ui\images\colorpicker_rgb_r.png" />
+    <Content Include="Content\ui\images\colorpicker_select.gif" />
+    <Content Include="Content\ui\images\colorpicker_submit.png" />
+    <Content Include="Content\ui\images\custom_background.png" />
+    <Content Include="Content\ui\images\custom_hex.png" />
+    <Content Include="Content\ui\images\custom_hsb_b.png" />
+    <Content Include="Content\ui\images\custom_hsb_h.png" />
+    <Content Include="Content\ui\images\custom_hsb_s.png" />
+    <Content Include="Content\ui\images\custom_indic.gif" />
+    <Content Include="Content\ui\images\custom_rgb_b.png" />
+    <Content Include="Content\ui\images\custom_rgb_g.png" />
+    <Content Include="Content\ui\images\custom_rgb_r.png" />
+    <Content Include="Content\ui\images\custom_submit.png" />
+    <Content Include="Content\ui\images\dadada_40x100_textures_02_glass_75.png" />
+    <Content Include="Content\ui\images\e6e6e6_40x100_textures_02_glass_75.png" />
+    <Content Include="Content\ui\images\fbf9ee_40x100_textures_02_glass_55.png" />
+    <Content Include="Content\ui\images\fef1ec_40x100_textures_05_inset_soft_95.png" />
+    <Content Include="Content\ui\images\ffffff_40x100_textures_02_glass_65.png" />
+    <Content Include="Content\ui\images\ffffff_40x100_textures_02_glass_75.png" />
+    <Content Include="Content\ui\images\loading.gif" />
+    <Content Include="Content\ui\images\progress-bg.gif" />
+    <Content Include="Content\ui\images\select.png" />
+    <Content Include="Content\ui\images\select2.png" />
+    <Content Include="Content\ui\images\spinner-bg.gif" />
+    <Content Include="Content\ui\images\tab.png" />
+    <Content Include="Content\ui\images\ui-anim.basic.16x16.gif" />
+    <Content Include="Content\ui\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\ui\themes\base\images\222222_256x240_icons_icons.png" />
+    <Content Include="Content\ui\themes\base\images\2e83ff_256x240_icons_icons.png" />
+    <Content Include="Content\ui\themes\base\images\454545_256x240_icons_icons.png" />
+    <Content Include="Content\ui\themes\base\images\888888_256x240_icons_icons.png" />
+    <Content Include="Content\ui\themes\base\images\cccccc_40x100_textures_03_highlight_soft_75.png" />
+    <Content Include="Content\ui\themes\base\images\cd0a0a_256x240_icons_icons.png" />
+    <Content Include="Content\ui\themes\base\images\dadada_40x100_textures_02_glass_75.png" />
+    <Content Include="Content\ui\themes\base\images\e6e6e6_40x100_textures_02_glass_75.png" />
+    <Content Include="Content\ui\themes\base\images\fbf9ee_40x100_textures_02_glass_55.png" />
+    <Content Include="Content\ui\themes\base\images\fef1ec_40x100_textures_05_inset_soft_95.png" />
+    <Content Include="Content\ui\themes\base\images\ffffff_40x100_textures_02_glass_65.png" />
+    <Content Include="Content\ui\themes\base\images\ffffff_40x100_textures_02_glass_75.png" />
+    <Content Include="Content\ui\themes\base\images\ui-anim.basic.16x16.gif" />
+    <Content Include="Content\ui\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\ui\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\ui\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\ui\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\ui\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\ui\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\ui\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\ui\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\ui\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\ui\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\ui\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\ui\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\ui\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\ui\themes\base\ui.accordion.css" />
+    <Content Include="Content\ui\themes\base\ui.all.css" />
+    <Content Include="Content\ui\themes\base\ui.allplugins.css" />
+    <Content Include="Content\ui\themes\base\ui.autocomplete.css" />
+    <Content Include="Content\ui\themes\base\ui.base.css" />
+    <Content Include="Content\ui\themes\base\ui.button.css" />
+    <Content Include="Content\ui\themes\base\ui.core.css" />
+    <Content Include="Content\ui\themes\base\ui.datepicker.css" />
+    <Content Include="Content\ui\themes\base\ui.dialog.css" />
+    <Content Include="Content\ui\themes\base\ui.progressbar.css" />
+    <Content Include="Content\ui\themes\base\ui.resizable.css" />
+    <Content Include="Content\ui\themes\base\ui.slider.css" />
+    <Content Include="Content\ui\themes\base\ui.tabs.css" />
+    <Content Include="Content\ui\themes\base\ui.theme.css" />
+    <Content Include="Content\ui\themes\default\images\000000_40x100_textures_01_flat_10.png" />
+    <Content Include="Content\ui\themes\default\images\222222_256x240_icons_icons.png" />
+    <Content Include="Content\ui\themes\default\images\228ef1_256x240_icons_icons.png" />
+    <Content Include="Content\ui\themes\default\images\666666_40x100_textures_08_diagonals_thick_20.png" />
+    <Content Include="Content\ui\themes\default\images\b81900_40x100_textures_08_diagonals_thick_18.png" />
+    <Content Include="Content\ui\themes\default\images\eeeeee_40x100_textures_03_highlight_soft_100.png" />
+    <Content Include="Content\ui\themes\default\images\ef8c08_256x240_icons_icons.png" />
+    <Content Include="Content\ui\themes\default\images\f6a828_500x100_textures_12_gloss_wave_35.png" />
+    <Content Include="Content\ui\themes\default\images\f6f6f6_40x100_textures_02_glass_100.png" />
+    <Content Include="Content\ui\themes\default\images\fdf5ce_40x100_textures_02_glass_100.png" />
+    <Content Include="Content\ui\themes\default\images\ffd27a_256x240_icons_icons.png" />
+    <Content Include="Content\ui\themes\default\images\ffe45c_40x100_textures_03_highlight_soft_75.png" />
+    <Content Include="Content\ui\themes\default\images\ffffff_256x240_icons_icons.png" />
+    <Content Include="Content\ui\themes\default\images\ffffff_40x100_textures_02_glass_65.png" />
+    <Content Include="Content\ui\themes\default\ui.accordion.css" />
+    <Content Include="Content\ui\themes\default\ui.all.css" />
+    <Content Include="Content\ui\themes\default\ui.allplugins.css" />
+    <Content Include="Content\ui\themes\default\ui.core.css" />
+    <Content Include="Content\ui\themes\default\ui.datepicker.css" />
+    <Content Include="Content\ui\themes\default\ui.dialog.css" />
+    <Content Include="Content\ui\themes\default\ui.progressbar.css" />
+    <Content Include="Content\ui\themes\default\ui.resizable.css" />
+    <Content Include="Content\ui\themes\default\ui.slider.css" />
+    <Content Include="Content\ui\themes\default\ui.tabs.css" />
+    <Content Include="Content\ui\themes\default\ui.theme.css" />
+    <Content Include="Content\ui\themes\Redmond\images\ui-anim.basic.16x16.gif" />
+    <Content Include="Content\ui\themes\Redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\ui\themes\Redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\ui\themes\Redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\ui\themes\Redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\ui\themes\Redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\ui\themes\Redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Content\ui\themes\Redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\ui\themes\Redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\ui\themes\Redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\ui\themes\Redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\ui\themes\Redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\ui\themes\Redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\ui\themes\Redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\ui\themes\Redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\ui\themes\Redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Content\ui\themes\Redmond\jquery-ui-1.8.1.custom.css" />
+    <Content Include="Content\ui\themes\Redmond\jquery-ui-1.8.13.custom.css" />
+    <Content Include="Content\ui\themes\Redmond\ui.accordion.css" />
+    <Content Include="Content\ui\themes\Redmond\ui.all.css" />
+    <Content Include="Content\ui\themes\Redmond\ui.base.css" />
+    <Content Include="Content\ui\themes\Redmond\ui.core.css" />
+    <Content Include="Content\ui\themes\Redmond\ui.datepicker.css" />
+    <Content Include="Content\ui\themes\Redmond\ui.dialog.css" />
+    <Content Include="Content\ui\themes\Redmond\ui.progressbar.css" />
+    <Content Include="Content\ui\themes\Redmond\ui.resizable.css" />
+    <Content Include="Content\ui\themes\Redmond\ui.slider.css" />
+    <Content Include="Content\ui\themes\Redmond\ui.tabs.css" />
+    <Content Include="Content\ui\themes\Redmond\ui.theme.css" />
+    <Content Include="Content\ui\ui.all.css" />
+    <Content Include="Content\ui\ui.autocomplete.css" />
+    <Content Include="Content\ui\ui.datepicker.css" />
+    <Content Include="Content\ui\ui.tabs.css" />
+    <Content Include="Global.asax" />
+    <Content Include="jslibraries.xml" />
+    <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.5.1.js" />
+    <Content Include="Scripts\jquery-1.5.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\modernizr-1.7.js" />
+    <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\ui\build.xml" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-af.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ar.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-az.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-bg.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-bs.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ca.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-cs.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-da.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-de.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-el.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-en-GB.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-eo.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-es.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-et.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-eu.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-fa.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-fi.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-fo.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-fr-CH.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-fr.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-gl.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-he.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-hr.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-hu.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-hy.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-id.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-is.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-it.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ja.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ko.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-kz.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-lt.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-lv.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ms.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-nl.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-no.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-pl.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-pt-BR.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-pt.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ro.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ru.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-sk.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-sl.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-sq.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-sr-SR.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-sr.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-sv.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ta.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-th.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-tr.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-uk.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-vi.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-zh-CN.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-zh-HK.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-zh-TW.js" />
+    <Content Include="Scripts\ui\jquery.effects.blind.js" />
+    <Content Include="Scripts\ui\jquery.effects.bounce.js" />
+    <Content Include="Scripts\ui\jquery.effects.clip.js" />
+    <Content Include="Scripts\ui\jquery.effects.core.js" />
+    <Content Include="Scripts\ui\jquery.effects.drop.js" />
+    <Content Include="Scripts\ui\jquery.effects.explode.js" />
+    <Content Include="Scripts\ui\jquery.effects.fade.js" />
+    <Content Include="Scripts\ui\jquery.effects.fold.js" />
+    <Content Include="Scripts\ui\jquery.effects.highlight.js" />
+    <Content Include="Scripts\ui\jquery.effects.pulsate.js" />
+    <Content Include="Scripts\ui\jquery.effects.scale.js" />
+    <Content Include="Scripts\ui\jquery.effects.shake.js" />
+    <Content Include="Scripts\ui\jquery.effects.slide.js" />
+    <Content Include="Scripts\ui\jquery.effects.transfer.js" />
+    <Content Include="Scripts\ui\jquery.ui.accordion.js" />
+    <Content Include="Scripts\ui\jquery.ui.autocomplete.js" />
+    <Content Include="Scripts\ui\jquery.ui.autocompleteSource.js" />
+    <Content Include="Scripts\ui\jquery.ui.button.js" />
+    <Content Include="Scripts\ui\jquery.ui.combobox.js" />
+    <Content Include="Scripts\ui\jquery.ui.core.js" />
+    <Content Include="Scripts\ui\jquery.ui.datepicker.js" />
+    <Content Include="Scripts\ui\jquery.ui.dialog.js" />
+    <Content Include="Scripts\ui\jquery.ui.draggable.js" />
+    <Content Include="Scripts\ui\jquery.ui.droppable.js" />
+    <Content Include="Scripts\ui\jquery.ui.mouse.js" />
+    <Content Include="Scripts\ui\jquery.ui.position.js" />
+    <Content Include="Scripts\ui\jquery.ui.progressbar.js" />
+    <Content Include="Scripts\ui\jquery.ui.resizable.js" />
+    <Content Include="Scripts\ui\jquery.ui.selectable.js" />
+    <Content Include="Scripts\ui\jquery.ui.slider.js" />
+    <Content Include="Scripts\ui\jquery.ui.sortable.js" />
+    <Content Include="Scripts\ui\jquery.ui.tabs.js" />
+    <Content Include="Scripts\ui\jquery.ui.widget.js" />
+    <Content Include="Scripts\ui\ui.wizard.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\Home\WithHelper.cshtml" />
+    <Content Include="Views\Home\MyTabs.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>7370</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
