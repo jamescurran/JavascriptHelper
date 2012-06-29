@@ -1,0 +1,36 @@
+﻿@using JSHelperDemo.Components
+@{
+	ViewBag.Title = "Without Helper";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Without Helper</h2>
+
+@Html.MessageBoxWO("msg1", "Button 1 clicked")
+@Html.MessageBoxWO("msg2","Button 2 clicked", "Warning", "alert")
+
+
+<button onclick="OpenDiag('msg1')">Button 1</button>
+<button onclick="OpenDiag('msg2')">Button 2 </button>
+
+@Html.Partial("MyTabsWO") 
+
+
+@*  Note that these, which are handled inside Html.MessageBox with JavascriptHelper, 
+	  must be included explicitly here
+*@
+@section scripts {
+	@Scripts.Render("~/bundles/jqueryui")
+
+	<script type="text/javascript">
+		function OpenDiag(id) { $('#' + id).dialog('open'); } 
+		$(function($) {
+		$('#msg1').dialog({ autoOpen: false });
+		$('#msg2').dialog({ autoOpen: false });
+
+		$('#tabs').tabs()
+
+		});
+		</script>
+}
+

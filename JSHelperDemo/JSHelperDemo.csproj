@@ -278,6 +278,7 @@
     <Content Include="Content\ui\ui.tabs.css" />
     <Content Include="Global.asax" />
     <Content Include="jslibraries.xml" />
+    <Content Include="readme.txt" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
     <Content Include="Scripts\jquery-1.5.1.min.js" />

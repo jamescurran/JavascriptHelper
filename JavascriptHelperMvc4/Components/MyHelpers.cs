@@ -27,5 +27,15 @@ namespace JSHelperDemo.Components
 
 			return new MvcHtmlString(text);
 		}
+		public static MvcHtmlString MessageBoxWO(this HtmlHelper html, string id,
+								string Text, string title = "Error", string icon = "info")
+		{
+			var text = string.Format(@"<div id=""{0}"" title=""{1}"">	" +
+									 @"<p><span class=""ui-icon ui-icon-{2}"" style=""float:left; margin:0 7px 20px 0;"">" +
+									 @"</span>{3}</p></div>",
+				id, title, icon, Text);
+
+			return new MvcHtmlString(text);
+		}
 	}
 }

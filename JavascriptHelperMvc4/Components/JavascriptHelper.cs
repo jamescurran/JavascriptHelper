@@ -54,7 +54,7 @@ namespace NovelTheory.Component
 
 		private LibraryDetail[] libraryDefaults = new LibraryDetail[]
 			{
-				new LibraryDetail("prototype"),
+				new LibraryDetail("jquery"),
 				new LibraryDetail("scriptaculous", "prototype", "effects2"),
 				new LibraryDetail("effectsfat", "prototype"),
 				new LibraryDetail("validate", "prototype"),
@@ -248,8 +248,7 @@ namespace NovelTheory.Component
 		private MvcHtmlString InsertScripts_Bundled(transformType ttype)
 		{
 			var files = new HashSet<string>();
-//			BundleTable.Bundles.Clear();
-			IBundleTransform transform = ttype == transformType.Compress ? new JsMinify() : new NoTransform("text/javascript") as IBundleTransform;
+			IBundleTransform transform = ttype == transformType.Compress ? new JsMinify() : null as IBundleTransform;
 			var vpath = CombineUrlPath(LocalJsPath, BundleFile);
 			var bundle = new Bundle(vpath, transform);
 			BundleTable.Bundles.Add(bundle);
@@ -261,18 +260,18 @@ namespace NovelTheory.Component
 			foreach (LibraryDetail lib in Segments.stdFiles)
 			{
 				string name = lib.Name;
-				if (lib.UseGoogle)
+				if (lib.UseGoogle || (lib.PathName !=null && lib.PathName.StartsWith("http")))
 				{
 					if(cnt > 0)
 					{
 						this.RenderJavascriptFile(sb, BundleTable.Bundles.ResolveBundleUrl(vpath));
-//						BundleTable.Bundles.Clear();
 						vpath = CombineUrlPath(LocalJsPath, BundleFile) + ++segment;
 						bundle = new Bundle(vpath, transform);
 						BundleTable.Bundles.Add(bundle);
 						cnt = 0;
 					}
-					this.RenderJavascriptFile(sb, string.Format(@"http://ajax.googleapis.com/ajax/libs/{0}/{1}/{0}.js", name, lib.Version));
+					var pathName = lib.UseGoogle ? string.Format(@"http://ajax.googleapis.com/ajax/libs/{0}/{1}/{0}.js", name, lib.Version) :  lib.PathName;
+					this.RenderJavascriptFile(sb, pathName);
 					continue;
 				}
 
@@ -285,19 +284,19 @@ namespace NovelTheory.Component
 						pathname = lib.DebugPathName ?? lib.PathName;
 					if (pathname != null)
 					{
-						bundle.AddFile(CombineUrlPath(LocalJsPath, pathname));
+						bundle.Include(CombineUrlPath(LocalJsPath, pathname));
 						++cnt;
 					}
 				}
 			}
 			if (self != null && self.PathName != null)
 			{
-				bundle.AddFile(CombineUrlPath(LocalJsPath, self.PathName));
+				bundle.Include(CombineUrlPath(LocalJsPath, self.PathName));
 				++cnt;
 			}
 			foreach (string file in Segments.files)
 			{
-				bundle.AddFile(file);
+				bundle.Include(file);
 				++cnt;
 			}
 			if (cnt >0)
@@ -388,8 +387,7 @@ namespace NovelTheory.Component
 		{
 			var files = new HashSet<string>();
 			var bundles = BundleTable.Bundles;
-//			BundleTable.Bundles.Clear();
-			IBundleTransform transform = ttype == transformType.Compress ? new CssMinify() : new NoTransform("text/css") as IBundleTransform;
+			IBundleTransform transform = ttype == transformType.Compress ? new CssMinify() : null as IBundleTransform;
 			var vpath = CombineUrlPath(LocalCssPath, BundleFile);
 			var bundle = new Bundle(vpath, transform);
 			foreach (var lib in Segments.stdFiles)
@@ -400,23 +398,19 @@ namespace NovelTheory.Component
 					files.Add(name);
 					if (name[0] == '/')
 					{
-						bundle.AddFile(name);
+						bundle.Include(name);
 					}
 					else
 					{
 						var sheet = CssDetails.FirstOrDefault(css => css.Name == name);
 						if (sheet != null)
-							bundle.AddFile(CombineUrlPath(LocalCssPath, sheet.PathName));
+							bundle.Include(CombineUrlPath(LocalCssPath, sheet.PathName));
 					}
 				}
 			}
 			bundles.Add(bundle);
-//			var resp = bundle.GenerateBundleResponse(new BundleContext(this.httpcontext, bundles, this.LocalCssPath));
 			return new MvcHtmlString(
 							String.Format(@"<link href=""{0}"" rel=""stylesheet"" type=""text/css"" />", bundles.ResolveBundleUrl(vpath)));
-
-	
-		
 		}
 
 		string CombineUrlPath(string path1, string path2)
@@ -460,13 +454,12 @@ namespace NovelTheory.Component
 			sb.AppendLine(@"<script type=""text/javascript"">");
 			sb.AppendLine(@"//<![CDATA[");
 
-#if true
+			// NOTE: This hard-codes the jQuery onReady function.  The probably should be a bit more generic,
+			//  allowing the strat-up code for otehr frameworks, but as jQuery is the ASP.NEt MVC
+			// standard, this is good enough for now.
+
 			sb.AppendLine("jQuery(function($) {");
-#else
-			var  rm = new ResourceManager("Castle.MonoRail.ViewComponents.InsertJavascript",  Assembly.GetExecutingAssembly());
-			RenderText(rm.GetString(this.helper.PreferredLibrary.ToLowerInvariant()));
-			RenderText(Environment.NewLine);
-#endif
+
 			sb.AppendLine(Segments.onreadyscript.ToString());
 			sb.AppendLine("});");
 
@@ -504,15 +497,6 @@ namespace NovelTheory.Component
 			sb.WriteLine(@"//]]>");
 			sb.WriteLine("</script>");
 		}
-
-		//internal void RenderCssFile(StringBuilder sb,  string file)
-		//{
-		//    if (!file.StartsWith("http://"))
-		//        file = Path.Combine(LocalCssPath, file).Replace('\\', '/');
-
-		//    sb.AppendFormat(@"<link rel=""stylesheet"" type=""text/css"" href=""{0}"" />", file);
-		//    sb.AppendLine();
-		//}
 
 		internal void RenderCssFile(TextWriter tw, string file)
 		{

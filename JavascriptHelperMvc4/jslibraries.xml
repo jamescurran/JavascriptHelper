@@ -8,89 +8,69 @@
 		   >
 	<library name="base" useGoogle="false"  />
 
-	<library name="jquery" version="1.6.2" useGoogle="true"  dependsOn="json" pathname="jquery-1.6.2.min.js" debugPath="jquery-1.6.2.js" />
-	<library name="modernizr" pathname="modernizr-1.7.min.js" debugPath="modernizr-1.7.js" alias="modern, modernizer" dependsOn="jquery"/>
-	<library name="dojo" useGoogle="true" pathname="dojo.js" />
-	<library name="mootools" useGoogle="true" pathname="mootools.js" />
-	<library name="underscore" useGoogle="false" pathname="underscore-min.js" debugPath="underscore.js" />
-	<library name="bgiframe" useGoogle="false" dependsOn="jquery" pathname="jquery.bgiframe.min.js" debugPath="jquery.bgiframe-2.1.1.js" />
-	<library name="easing" version="1.3" useGoogle="false" dependsOn="jquery" pathname="jquery.easing.1.3.js"/>
-	<library name="gallery" useGoogle="false" dependsOn="jquery,easing" pathname="jquery.ad-gallery.pack.js"/>
-	<library name="tablednd" useGoogle="false" dependsOn="jquery" pathname="jquery.tablednd.js"/>
-	<library name="mylib" useGoogle="false" dependsOn="jquery" pathname="jquery.enable.js"/>
+	<library name="jquery" version="1.6.2" useGoogle="false"  dependsOn="json" pathname="jquery-1.6.2.min.js" debugPath="jquery-1.6.2.js" />
+	<library name="modernizr" pathname="modernizr-2.0.6-developement-only.js" alias="modern, modernizer" dependsOn="jquery"/>
+
+	<library name="uicore"  dependsOn="jquery" pathname="jquery-ui-1.8.11.min.js"  debugPath="jquery-ui-1.8.11.js"/>
+	<library name ="json" useGoogle="false" pathname="JSON2.js" alias="JSON2" />
+
+	<!--
+
+	<library name="uiwidget" dependsOn="uicore" />
+	<library name="mouse" dependsOn="uiwidget" />
+	<library name="button" dependsOn="uiwidget" css="ui" />
+	<library name="draggable"  dependsOn="uicore,uiwidget,mouse" />
+	<library name="droppable"  dependsOn="uicore,uiwidget,mouse,draggable" />
+	<library name="resizable"  dependsOn="uicore,uiwidget,mouse" />
+	<library name="tabs"  dependsOn="uiwidget" css="ui"  />
+	<library name="dialog"  dependsOn="uiwidget,mouse,button,draggable,position,resizable"  css="ui" />
+	<library name="datepicker" dependsOn="uiwidget"    css="ui" />
+	<library name="slider"  dependsOn="uicore,uiwidget,mouse" css="ui"  />
+	<library name="accordion"  dependsOn="uiwidget" alias="accordain, accordian"  css="ui" />
+	<library name="progressbar"  dependsOn="uiwidget" alias="progress"  css="ui" />
+	<library name="position" dependsOn="uiwidget" />
 
 	<library name="uicore"  version="1.8.13" useGoogle="false" dependsOn="jquery" pathname="ui/jquery.ui.core.js"/>
-	<library name="uiwidget"  version="1.8.13" useGoogle="false" dependsOn="uicore" pathname="ui/jquery.ui.widget.js"/>
-	<library name="pngfix" useGoogle="false"  pathname="XXXXsupersleight-min.js"/>
-	<library name="loginslide" useGoogle="false" dependsOn="pngfix" css="loginslide" pathname="slide.js"/>
 
+-->
+
+	<!-- -->
+	<library name="uiwidget"  version="1.8.13" useGoogle="false" dependsOn="uicore" pathname="ui/jquery.ui.widget.js"/>
 	<library name="mouse" useGoogle="false" dependsOn="uiwidget" pathname="ui/jquery.ui.mouse.js"/>
 	<library name="button" useGoogle="false" dependsOn="uiwidget" pathname="ui/jquery.ui.button.js"    css="ui" />
 	<library name="draggable"   version="1.8.13" useGoogle="false" dependsOn="uicore,uiwidget,mouse" pathname="ui/jquery.ui.draggable.js"/>
 	<library name="droppable"   version="1.8.13" useGoogle="false" dependsOn="uicore,uiwidget,mouse,draggable" pathname="ui/jquery.ui.droppable.js"/>
 	<library name="resizable"   version="1.8.13" useGoogle="false" dependsOn="uicore,uiwidget,mouse" pathname="ui/jquery.ui.resizable.js"/>
-	<library name="tabs"   version="1.8.13" useGoogle="false" dependsOn="uiwidget" css="ui"  pathname="ui/jquery.ui.tabs.js"/>
-	<library name="dialog" useGoogle="false"  dependsOn="uiwidget,mouse,button,draggable,position,resizable"  css="ui" pathname="ui/jquery.ui.dialog.js" />
+	<library name="tabs"   version="1.8.13" useGoogle="false" dependsOn="uiwidget"  pathname="ui/jquery.ui.tabs.js"/>
+	<library name="dialog" useGoogle="false"  dependsOn="uiwidget,mouse,button,draggable,position,resizable"  pathname="ui/jquery.ui.dialog.js" />
 	<library name="datepicker" useGoogle="false" dependsOn="uiwidget" pathname="ui/jquery.ui.datepicker.js"   css="ui" />
 	<library name="slider"   version="1.8.13" useGoogle="false" dependsOn="uicore,uiwidget,mouse" pathname="ui/jquery.ui.slider.js"  css="ui"  />
 	<library name="accordion"   version="1.8.13" useGoogle="false" dependsOn="uiwidget" pathname="ui/jquery.ui.accordion.js" alias="accordain, accordian"  css="ui" />
 	<library name="progressbar"   version="1.8.13" useGoogle="false" dependsOn="uiwidget" pathname="ui/jquery.ui.progressbar.js" alias="progress"  css="ui" />
 	<library name="position"  version="1.8.13" useGoogle="false" dependsOn="uiwidget" pathname="ui/jquery.ui.position.js"/>
+	<!--  -->
 	<library name="stackfix"  version="1.8.13" useGoogle="false" dependsOn="uiwidget" pathname="ui/jquery.ui.stackfix.js"/>
 	<library name="jvalidate" useGoogle="false" dependsOn="jquery" pathname="jquery.validate.js"/>
-	<library name="notify" useGoogle="false" dependsOn="jquery" pathname="jquery.jnotify.js"/>
-	<library name="cluetip" useGoogle="false" dependsOn="jquery" pathname="jquery.cluetip.js" />
-	<library name="progressbarXXX" useGoogle="false" dependsOn="jquery" pathname="jquery.progressbar.js" />
-	<library name="template" useGoogle="false" dependsOn="jquery" pathname="jquery.tmpl.min.js" debugPath="jquery.tmpl.js" />
-	<library name="daterange" useGoogle="false" dependsOn="jquery" pathname="jquery.daterange.js" debugPath="jquery.daterange.js" />
-
-	<!-- -->
-	<library name="autocompletesource"  useGoogle="false" pathname="ui/jquery.ui.autocompletesource.js" />
-	<library name="autocomplete"  version="1.8.13" useGoogle="false" dependsOn="uiwidget,position,mouse,resizable,autocompletesource" pathname="ui/jquery.ui.autocomplete.js" />
-	<library name="combobox"  version="1.8.13" useGoogle="false" dependsOn="autocomplete,button" pathname="ui/jquery.ui.combobox.js" alias="combo"/>
-
-	<library name ="gridlocale" useGoogle="false" dependsOn="jquery, draggable, resizable" pathname="jqGrid/js/i18n/grid.locale-en.js"/>
-
-	<!--  -->
-	<library name ="grid" useGoogle="false" dependsOn="gridlocale" pathname="jqGrid/js/jquery.jqGrid.min.js"   debugPath="jqGrid/jquery.jqGridDEBUG.js"/>
-	<library name ="gridui" useGoogle="false" dependsOn="grid" pathname="jqGrid/js/grid.jqueryui.js"/>
-	<library name ="gridformedit" useGoogle="false" dependsOn="grid" pathname="jqGrid/js/grid.formedit.js"/>
-	<library name="jqmodal" dependsOn="grid" pathname="jqGrid/js/jqModal.js" />
-	<!--  
-  <library name ="grid1" useGoogle="false" dependsOn="gridlocale" pathname="jqGrid/js/grid.common.js"/>
-  <library name ="grid" useGoogle="false" dependsOn="grid1" pathname="jqGrid/js/grid.base.js"/>
-  <library name ="tbl2grid" useGoogle="false" dependsOn="grid" pathname="jqGrid/js/grid.tbltogrid.js"/>
-  -->
-
-	<library name ="json" useGoogle="false" pathname="JSON2.js" alias="JSON2" />
-	<library name="showdown" useGoogle="false" dependsOn="jquery" pathname="wmd/showdown.js"/>
-	<library name="wmdXXXX" useGoogle="false" dependsOn="showdown" pathname="wmd/wmd.js"/>
-	<library name="wmd" useGoogle="false" pathname="jquery.wmd.min.js" />
-	<library name="cookies" useGoogle="false"  dependsOn="jquery" pathname="jquery.cookies.js"  alias="cookie"/>
-	<library name="form" useGoogle="false" dependsOn="jquery" pathname="jquery.form.js"/>
-	<library name="calendar" useGoogle="false" dependsOn="jquery, droppable" pathname="jMonthCalendar.pack.js" debugPath="jMonthCalendar.js" />
-
-	<library name ="popupeditor" useGoogle="false" dependsOn="tabs, dialog, wmd, draggable" pathname="jquery.popupeditor.js"/>
-	<library name ="tabbededitor" useGoogle="false" dependsOn="tabs, dialog, wmd, draggable" pathname="jquery.tabbededitor.js"/>
-	<library name ="maxlength" useGoogle="false" dependsOn="jquery" pathname="jquery.maxlength.js"/>
-
-
 	<library name="maps" useGoogle="false" pathname="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6.2&amp;mkt=en-us" />
 
 
 	<css selfcsspath="~/content/css/Views" localcsspath="~/content">
 		<sheet name="base" pathname="site.css" />
-		<sheet name="ui" pathname="ui/themes/Redmond/jquery-ui-1.8.13.custom.css" />
-		<sheet name="cluetip" pathname="jquery.cluetip.css" />
-		<sheet name="notify" pathname="jquery.jnotify.css" />
-		<sheet name="grid" pathname="jqGrid/css/ui.jqgrid.css" />
-		<sheet name="calendar" pathname="jMonthCalendar.css" />
-		<sheet name="wmdXXXX"  pathname="wmd.css" />
-		<sheet name="wmd" pathname="wmd.min.css" />
-		<sheet name="jqmodal" pathname="jqGrid/themes/jqModal.css" />
-		<sheet name="autocomplete" pathname="jquery/jquery.autocomplete.css" />
-		<sheet name="daterange" pathname="daterange.css" />
-		<sheet name="loginslide" pathname="slide.css" />
+
+		<sheet name="ui" pathname="themes/base/jquery.ui.core.css" />
+		<sheet name="uiwidget" pathname="themes/base/jquery.ui.theme.css" />
+
+		<sheet name="resizable" pathname="themes/base/jquery.ui.resizable.css" />
+				<sheet name="selectable" pathname="themes/base/jquery.ui.selectable.css" />
+				<sheet name="accordion" pathname="themes/base/jquery.ui.accordion.css" />
+				<sheet name="autocomplete" pathname="themes/base/jquery.ui.autocomplete.css" />
+				<sheet name="button" pathname="themes/base/jquery.ui.button.css" />
+				<sheet name="dialog" pathname="themes/base/jquery.ui.dialog.css" />
+				<sheet name="slider" pathname="themes/base/jquery.ui.slider.css" />
+				<sheet name="tabs" pathname="themes/base/jquery.ui.tabs.css" />
+				<sheet name="datepicker" pathname="themes/base/jquery.ui.datepicker.css" />
+				<sheet name="progressbar" pathname="themes/base/jquery.ui.progressbar.css" />
+
 	</css>
 
 	<!-- the cdn elements aren't used.  These are just a rough prototype for a feature I'm thinking about. -->
