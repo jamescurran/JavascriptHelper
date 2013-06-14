@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSHelperDemo", "JSHelperDemo\JSHelperDemo.csproj", "{FC767DE7-AC97-4560-8172-6C2C3DADC213}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JavascriptHelperMvc4", "JavascriptHelperMvc4\JavascriptHelperMvc4.csproj", "{27B9E61C-D1D4-49BD-B55B-F6A0FBF5EDE0}"
