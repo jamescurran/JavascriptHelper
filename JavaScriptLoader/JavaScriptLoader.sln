@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JavaScriptLoader", "JavaScriptLoader.csproj", "{572CC06B-4CDE-4C76-B2C6-D2A16B4188E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGet.JavascriptLoader", "..\NuGet.JavascriptLoader\NuGet.JavascriptLoader.csproj", "{0451BAEF-DF2E-4B98-8644-94EE9415E389}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{572CC06B-4CDE-4C76-B2C6-D2A16B4188E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{572CC06B-4CDE-4C76-B2C6-D2A16B4188E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{572CC06B-4CDE-4C76-B2C6-D2A16B4188E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{572CC06B-4CDE-4C76-B2C6-D2A16B4188E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(CodealikeProperties) = postSolution
+		SolutionGuid = 32a7040b-e28b-4b1b-941a-55416bd2a017
+	EndGlobalSection
+EndGlobal

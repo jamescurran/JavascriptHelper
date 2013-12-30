@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+	 Defines the schema for jsLibraries.config file.
+	 
+	 For IntelliSense/Autocomplete when writing jslibraries.config file.
+	 
+	 Using VisualStudio 2008 -  copy this file to :
+	 C:\Program Files\Microsoft Visual Studio 9.0\Common7\Packages\schemas\xml
+	 
+	 Using Visual Studio 2010 & 2012 - Select from menu XML/Schemas...    
+	 Click "Add..." and select this file.
+	 
+	 Using SharpDeveloper - Select from menu Tools/Options.../Text Editors/XML Schemas.
+	 Click "Add..." and select this file.
+	
+	 
+-->
+<xs:schema  targetNamespace="http://schemas.noveltheory.com/MR/2013/10/JSLibrary"
+		attributeFormDefault="unqualified"
+		elementFormDefault="qualified"
+			xmlns="http://schemas.noveltheory.com/MR/2013/10/JSLibrary"
+		xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	
+	<xs:simpleType name="transformType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="none" />
+			<xs:enumeration value="bundleonly" />
+			<xs:enumeration value="compress" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:element name="libraries">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="library" type="libraryType"/>
+				<xs:element maxOccurs="1" minOccurs="0" name="css" type="cssType" />
+			</xs:sequence>
+			<xs:attribute name="preferredLibrary" default ="prototype" type="xs:string" />
+			<xs:attribute name="cdn" default="google"  type="xs:string"  use="optional" />
+			<xs:attribute name="localjspath"  type="xs:string"   use="optional">
+				<xs:annotation>
+					<xs:documentation>The relative location of the folder which hold the js files. The default is "~/Scripts" which is the ASP.NET MVC default.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="useDebugScripts"  type="xs:boolean"  use="optional">
+				<xs:annotation>
+					<xs:documentation>when set to "true" forces use of debug versions of js files when available. Defaults to false. Debug scripts are always used when a debugger is attached.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="selfJsPath"  type="xs:string"  use="optional" >
+				<xs:annotation>
+					<xs:documentation>The relative location of the folder under which view-specific js files are placed. They follow the same structure as view files, so if you request the js file for /Home/Index, the view file would be /Views/Home/Index.cshtml, and the js file used what be /Scripts/Views/Home/Index.js. Defaults to "~/Script/Views"</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="transform" type="transformType" use="optional" default="none" >
+				<xs:annotation>
+					<xs:documentation>.....</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="libraryType">
+		<xs:attribute name="name" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>a unique name for a particular JavaScript file. It is required and is used by the helper and throughout the xml file to refer to that file.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="version" type="xs:string" use="optional" default="1" />
+		<xs:attribute name="useCDS" type="xs:boolean" use="optional" default="false" />
+		<xs:attribute name="pathname" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>.....</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="debugPath" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>.....</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="css" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Gives the name of the css element (see below) associated with this file.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="alias" use="optional">
+			<xs:annotation>
+				<xs:documentation>A comma-separated list of alternate names this file could be identified as. This is optional and defaults to no aliases.</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:list itemType="xs:string" />
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="dependsOn" use="optional">
+			<xs:annotation>
+				<xs:documentation>.....</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:list itemType="xs:string" />
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="cssType">
+	<xs:sequence>
+		<xs:element maxOccurs="unbounded" name="sheet" type="sheetType"/>
+	</xs:sequence>
+		<xs:attribute name="localcsspath" default ="~/content/css" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>Gives the relative location of the folder where you put your CSS files. The default is "~/Content" which is the ASP.NET MVC default.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="selfcsspath" default="~/content/css/Views"  type="xs:string"  use="optional">
+			<xs:annotation>
+				<xs:documentation>.....</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+</xs:complexType>
+
+<xs:complexType name="sheetType">
+	<xs:attribute name="name" type="xs:string" use="required">
+		<xs:annotation>
+			<xs:documentation>The name (id) which this sylesheet will be refered to using. Corresponds to similarly named JS file.</xs:documentation>
+		</xs:annotation>
+	</xs:attribute>
+	<xs:attribute name="pathname" type="xs:string" use="required">
+		<xs:annotation>
+			<xs:documentation>Gives the path, relative to the localcsspath described above, and filename of this file.</xs:documentation>
+		</xs:annotation>
+	</xs:attribute>
+	<xs:attribute name="debugPath" type="xs:string" use="optional">
+		<xs:annotation>
+			<xs:documentation>.....</xs:documentation>
+		</xs:annotation>
+	</xs:attribute>
+</xs:complexType>
+</xs:schema>

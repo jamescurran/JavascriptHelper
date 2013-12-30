@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>JavascriptLoader.Initial</id>
+        <version>1.1.0</version>
+        <authors>jamescurran</authors>
+        <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
+        <projectUrl>https://github.com/jamescurran/JavascriptHelper</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Configuration and Readme files for JavascriptLoader.  Include this package at first, and then update that package as needed.</description>
+        <copyright>© 2013, James M. Curran</copyright>
+        <language>en-US</language>
+        <tags>AspNet Mvc optimization bundling minification</tags>
+        <dependencies>
+            <dependency id="JavascriptLoader" version="1.1.0" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="content\README.txt" target="content\JavascriptLoader-README.txt" />
+        <file src="content\jslibraries.xml" target="content\jslibraries.xml" />
+        <file src="content\JSLibraries.xsd" target="content\JSLibraries.xsd" />
+    </files>
+</package>

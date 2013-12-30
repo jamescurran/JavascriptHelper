@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>JavascriptLoader</id>
+        <version>1.1.0</version>
+        <authors>jamescurran</authors>
+        <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
+        <projectUrl>https://github.com/jamescurran/JavascriptHelper</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>An MVC helper component to simplify handling of Javascript files and their associated CSS files.   Automatically handles dependancies plus bundling and minification.
+
+NOTE:  The first time installing this, you will also need JavascriptLoader.Initial.</description>
+        <copyright>© 2013, James M. Curran</copyright>
+        <language>en-US</language>
+        <tags>AspNet Mvc optimization bundling minification</tags>
+        <dependencies>
+            <dependency id="Microsoft.AspNet.Web.Optimization" version="1.1.1" />
+        </dependencies>
+    </metadata>
+    <files>
+		<file src="bin\Release\NovelTheory.JavascriptLoader.dll" target="lib\net40\" />
+		<file src="bin\Release\NovelTheory.JavascriptLoader.dll" target="lib\net45\" />
+    </files>
+</package>

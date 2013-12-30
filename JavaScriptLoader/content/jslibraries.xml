@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<libraries xmlns="http://schemas.noveltheory.com/MR/2013/10/JSLibrary" 
+			preferredLibrary="jquery" cdn="google" localjspath="~/Scripts" 
+		 selfJsPath="~/Scripts/Views"
+		 useDebugScripts="true" 
+		 transform ="none"
+		 >
+
+	<library name="base" />
+	<library name="modernizr" pathname="modernizr-2.6.2.js" alias="modern, modernizer" />
+	<library name="jquery" version="2.0.3"  pathname="jquery-2.0.3.min.js" debugPath="jquery-2.0.3.js" />
+	<library name="jvalidate" dependsOn="jquery" pathname="jquery.validate.min.js" debugPath="jquery.validate.js"/>
+	<library name="unobtr-valid" dependsOn="jquery" pathname="jquery.validate.unobtrusive.min.js" debugPath="jquery.validate.unobtrusive.js"/>
+	<library name="knockout" pathname="knockout-3.0.0.js" debugPath="knockout-3.0.0.debug.js" alias="ko" />
+
+	<!-- We can even handle external scripts -->	
+	<library name="maps" pathname="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0	" />
+
+	<!-- jQuery UI is distributed in several different forms. As several individual JS files, or as one big combined JS file
+	     with individual CSS files, or with a combined CSS file.
+			 The <library> and <sheet> items for each method are given below.  Choose the one you are using.
+			 Default is one JS file, with multiple CSS files, as that's the form used by the Visual Studio template. -->
+	
+<!-- jQuery UI : one JS file, one css file -->
+
+	<!--
+	<library name="jqueryui" pathname="jquery-ui-1.8.24.min.js" debugPath="jquery-ui-1.8.24.js" 
+					 alias="button,draggable,droppable,resizable,tabs,dialog,datepicker,slider,accordion,progressbar,position,menu,combobox"  css="ui" />
+	-->
+	
+	<!--  Here we define all the widgets of Jquery UI individually -->
+<!-- jQuery UI : multi JS files, one css file -->
+
+<!-- 
+	<library name="uicore" dependsOn="jquery" pathname="ui/jquery.ui.core.js"/>
+	<library name="uiwidget" dependsOn="uicore" pathname="ui/jquery.ui.widget.js"/>
+	<library name="mouse" dependsOn="uiwidget" pathname="ui/jquery.ui.mouse.js"/>
+	<library name="button" dependsOn="uiwidget" pathname="ui/jquery.ui.button.js" css="ui" />
+	<library name="draggable" dependsOn="uicore,uiwidget,mouse" pathname="ui/jquery.ui.draggable.js"/>
+	<library name="droppable" dependsOn="uicore,uiwidget,mouse,draggable" pathname="ui/jquery.ui.droppable.js"/>
+	<library name="resizable" dependsOn="uicore,uiwidget,mouse" pathname="ui/jquery.ui.resizable.js"/>
+	<library name="tabs" dependsOn="uiwidget" css="ui" pathname="		ui/jquery.ui.tabs.js"/>
+	<library name="dialog" dependsOn="uiwidget,mouse,button,draggable,position,resizable" css="ui" pathname="ui/jquery.ui.dialog.js" />
+	<library name="datepicker" dependsOn="uiwidget" pathname="ui/jquery.ui.datepicker.js" css="ui" />
+	<library name="slider" dependsOn="uicore,uiwidget,mouse" pathname="ui/jquery.ui.slider.js" css="ui" />
+	<library name="accordion" dependsOn="uiwidget" pathname="ui/jquery.ui.accordion.js" alias="accordain, accordian" css="ui" />
+	<library name="progressbar" dependsOn="uiwidget" pathname="ui/jquery.ui.progressbar.js" alias="progress" css="ui" />
+	<library name="position" dependsOn="uiwidget" pathname="ui/jquery.ui.position.js"/>
+	<library name="menu"  dependsOn="uiwidget, position" pathname="ui/jquery.ui.menu.js"/>
+	<library name="combobox" dependsOn="autocomplete,button" pathname="ui/jquery.ui.combobox.js" alias="combo"/>
+-->
+<!-- jQuery UI : one JS files, multi css files -->
+
+	<library name="uicore" dependsOn="jquery" pathname="jquery-ui-1.10.3.min.js" debugPath="jquery-ui-1.10.3.js" css="uicore"/>
+	<library name="uiwidget" dependsOn="uicore" />
+	<library name="mouse" dependsOn="uiwidget" />
+	<library name="button" dependsOn="uiwidget" css="uibutton" />
+	<library name="draggable" dependsOn="uicore,uiwidget,mouse" />
+	<library name="droppable" dependsOn="uicore,uiwidget,mouse,draggable" />
+	<library name="selectable" dependsOn="uicore,uiwidget,mouse" css="uiselectable"/>
+	<library name="resizable" dependsOn="uicore,uiwidget,mouse" css="uiresizeable"/>
+	<library name="tabs" dependsOn="uiwidget" css="uitabs" />
+	<library name="dialog" dependsOn="uiwidget,mouse,button,draggable,position,resizable" css="uidialog"  />
+	<library name="datepicker" dependsOn="uiwidget"  css="uidatepicker" />
+	<library name="slider" dependsOn="uicore,uiwidget,mouse" css="uislider" />
+	<library name="accordion" dependsOn="uiwidget" alias="accordain, accordian" css="uiaccordion" />
+	<library name="progressbar" dependsOn="uiwidget"  alias="progress" css="uiprogressbar" />
+	<library name="position" dependsOn="uiwidget" />
+	<library name="menu"  dependsOn="uiwidget, position" />
+	<library name="combobox" dependsOn="autocomplete,button" alias="combo"/>
+	
+		
+		
+	<css selfcsspath="~/content/css/Views" localcsspath="~/content/">
+		<sheet name="base" pathname="base.css" />
+<!-- jQuery UI : one css file -->
+<!--
+		<sheet name="ui" pathname="themes/base/minified/jquery-ui.min.css" debugpath="themes/base/jquery-ui.css" />
+		-->
+<!-- jQuery UI : separate css files -->
+	<sheet name="uicore" pathname="themes/base/minified/jquery.ui.core.min.css" debugPath="themes/base/jquery.ui.core.css" />
+	<sheet name="uiaccordion" pathname="themes/base/minified/jquery.ui.accordion.min.css" debugPath="themes/base/jquery.ui.accordion.css" />
+	<sheet name="uiautocomplete" pathname="themes/base/minified/jquery.ui.autocomplete.min.css" debugPath="themes/base/jquery.ui.autocomplete.css" />
+	<sheet name="uibutton" pathname="themes/base/minified/jquery.ui.button.min.css" debugPath="themes/base/jquery.ui.button.css" />
+	<sheet name="uidatepicker" pathname="themes/base/minified/jquery.ui.datepicker.min.css" debugPath="themes/base/jquery.ui.datepicker.css" />
+	<sheet name="uidialog" pathname="themes/base/minified/jquery.ui.dialog.min.css" debugPath="themes/base/jquery.ui.dialog.css" />
+	<sheet name="uiprogressbar" pathname="themes/base/minified/jquery.ui.progressbar.min.css" debugPath="themes/base/jquery.ui.progressbar.css" />
+	<sheet name="uiresizable" pathname="themes/base/minified/jquery.ui.resizable.min.css" debugPath="themes/base/jquery.ui.resizable.css" />
+	<sheet name="uiselectable" pathname="themes/base/minified/jquery.ui.selectable.min.css" debugPath="themes/base/jquery.ui.selectable.css" />
+	<sheet name="uislider" pathname="themes/base/minified/jquery.ui.slider.min.css" debugPath="themes/base/jquery.ui.slider.css" />
+	<sheet name="uitabs" pathname="themes/base/minified/jquery.ui.tabs.min.css" debugPath="themes/base/jquery.ui.tabs.css" />
+	</css>
+
+</libraries>
