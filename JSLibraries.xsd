@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Defines the schema for jsLibraries.config file.
+   
+   
+   For IntelliSense/Autocomplete when writing jslibraries.config file.
+   Using VisualStudio 2008 -  copy this file to :
+   C:\Program Files\Microsoft Visual Studio 9.0\Common7\Packages\schemas\xml
+   
+   Using SharpDeveloper - Select Tools/Options.../Text Editors/XML Schemas.
+   Click "Add..." and select this file.
+	
+   
+-->
+<xs:schema  targetNamespace="http://schemas.castleproject.org/MR/2009/09/JSLibrary"
+		attributeFormDefault="unqualified"
+		elementFormDefault="qualified"
+			xmlns="http://schemas.castleproject.org/MR/2009/09/JSLibrary"
+		xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:simpleType name="transformType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="none" />
+			<xs:enumeration value="bundleonly" />
+			<xs:enumeration value="compress" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="libraries">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="library">
+					<xs:annotation>
+						<xs:documentation> How bout here? </xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:attribute name="name" type="xs:string" use="required">
+							<xs:annotation>
+								<xs:documentation>The name (id) which this library will be refered to using.</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="version" type="xs:string" use="optional" default="1" />
+						<xs:attribute name="useGoogle" type="xs:boolean" use="optional" default="false" />
+						<xs:attribute name="autoLoad" type="xs:boolean" use="optional"  default="true"/>
+						<xs:attribute name="pathname" type="xs:string" use="optional" />
+						<xs:attribute name="debugPath" type="xs:string" use="optional" />
+						<xs:attribute name="alias" use="optional">
+							<xs:simpleType>
+								<xs:list itemType="xs:string" />
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="dependsOn" use="optional">
+							<xs:simpleType>
+								<xs:list itemType="xs:string" />
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="preferredLibrary" default ="prototype" type="xs:string" />
+			<xs:attribute name="cdn" default="google"  type="xs:string"  use="optional" />
+			<xs:attribute name="localjspath"  type="xs:string"   use="optional" />
+			<xs:attribute name="useDebugScripts"  type="xs:boolean"  use="optional"  />
+			<xs:attribute name="selfJsPath"  type="xs:string"  use="optional"  />
+			<xs:attribute name="transform" type="transformType" use="optional" default="none" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="css">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="sheet">
+					<xs:complexType>
+						<xs:attribute name="name" type="xs:string" use="required">
+						<xs:annotation>
+							<xs:documentation>The name (id) which this sylesheet will be refered to using. Corresponds to similarly named JS file.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="pathname" type="xs:string" use="required" />
+						</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="localcsspath" default ="~/content/css" type="xs:string" />
+			<xs:attribute name="selfcsspath" default="~/content/css/Views"  type="xs:string"  use="optional" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

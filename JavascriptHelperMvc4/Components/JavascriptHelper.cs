@@ -1,6 +1,6 @@
 ﻿#region Apache License
 /*
- * Copyright 2012, James M. Curran
+ * Copyright 2012-2013, James M. Curran
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -217,8 +217,19 @@ namespace NovelTheory.Component
 
 		public MvcHtmlString AddInlineFile(string text)
 		{
-			return new MvcHtmlString("");
+			if (!text.StartsWith("http"))
+				text = UrlHelper.GenerateContentUrl(CombineUrlPath(LocalJsPath, text), httpcontext);
 
+			var s = string.Format(@"{0}<script type=""text/javascript"" src=""{1}""></script>{0}",Environment.NewLine, text);
+			return new MvcHtmlString(s);
+
+		}
+
+		public MvcHtmlString AddFile(string filename)
+		{
+			var details = new LibraryDetail(filename, false, "", filename);
+			Segments.stdFiles.Add(details);
+			return MvcHtmlString.Empty;
 		}
 
 		public MvcHtmlString AddNoScriptText(string text)
@@ -248,6 +259,7 @@ namespace NovelTheory.Component
 		private MvcHtmlString InsertScripts_Bundled(transformType ttype)
 		{
 			var files = new HashSet<string>();
+//			BundleTable.Bundles.Clear();
 			IBundleTransform transform = ttype == transformType.Compress ? new JsMinify() : null as IBundleTransform;
 			var vpath = CombineUrlPath(LocalJsPath, BundleFile);
 			var bundle = new Bundle(vpath, transform);
@@ -387,7 +399,8 @@ namespace NovelTheory.Component
 		{
 			var files = new HashSet<string>();
 			var bundles = BundleTable.Bundles;
-			IBundleTransform transform = ttype == transformType.Compress ? new CssMinify() : null as IBundleTransform;
+//			BundleTable.Bundles.Clear();
+			IBundleTransform transform = ttype == transformType.Compress ? new CssMinify() : null  as IBundleTransform;
 			var vpath = CombineUrlPath(LocalCssPath, BundleFile);
 			var bundle = new Bundle(vpath, transform);
 			foreach (var lib in Segments.stdFiles)
@@ -409,6 +422,7 @@ namespace NovelTheory.Component
 				}
 			}
 			bundles.Add(bundle);
+//			var resp = bundle.GenerateBundleResponse(new BundleContext(this.httpcontext, bundles, this.LocalCssPath));
 			return new MvcHtmlString(
 							String.Format(@"<link href=""{0}"" rel=""stylesheet"" type=""text/css"" />", bundles.ResolveBundleUrl(vpath)));
 		}
@@ -476,7 +490,9 @@ namespace NovelTheory.Component
 		{
 			if (!file.StartsWith("http://"))
 			{
-				file = Path.Combine(LocalJsPath, file).Replace('\\', '/');
+				if (file.IndexOf('~') == -1)
+					file = Path.Combine(LocalJsPath, file);
+				file = file.Replace('\\', '/');
 				file = VirtualPathUtility.ToAbsolute(file);
 			}
 			sb.WriteLine(@"<script type=""text/javascript"" src=""{0}""></script>", file);
@@ -823,7 +839,7 @@ namespace NovelTheory.Component
 	}
 		#endregion
 
-	}
+}
 
 	internal static class XmlHelpers
 	{
@@ -881,9 +897,9 @@ namespace NovelTheory.Component
 		public LibraryDetail(string name, string dependsOn, string alias) : this(name, false, "1", null, alias, dependsOn) { }
 		public LibraryDetail(XmlElement node)
 		{
-			this.Name = node.xAttribute("name");
-			this.Alias = (node.xAttribute("alias") ?? "").Split(' ', ',');
-			this.DependsOn = (node.xAttribute("dependsOn") ?? "").Split(' ', ',');
+			this.Name = node.xAttribute("name").ToLowerInvariant();
+			this.Alias = (node.xAttribute("alias") ?? "").ToLowerInvariant().Split(' ', ',');
+			this.DependsOn = (node.xAttribute("dependsOn") ?? "").ToLowerInvariant().Split(' ', ',');
 			this.PathName = node.xAttribute("pathname");
 			this.UseGoogle = node.xAttributeBool("useGoogle");
 			this.Version = node.xAttribute("version");
@@ -929,12 +945,12 @@ namespace NovelTheory.Component
 		private static string Attribute(XmlElement ele, string key)
 		{
 			XmlAttribute attr = ele.Attributes[key];
-			return attr == null ? null : attr.Value;
+			return attr == null ? null : attr.Value.ToLowerInvariant();
 		}
 		private static string Attribute(XElement ele, string key)
 		{
 			XAttribute attr = ele.Attribute(key);
-			return attr == null ? null : attr.Value;
+			return attr == null ? null : attr.Value.ToLowerInvariant();
 		}
 	}
 
